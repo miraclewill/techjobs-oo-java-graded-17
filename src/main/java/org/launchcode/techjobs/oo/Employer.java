@@ -19,12 +19,12 @@ public class Employer {
     }
 
     // Custom toString, equals, and hashCode methods:
-
+//returns the value as a string instead of location&memory
     @Override
     public String toString() {
         return value;
     }
-
+//equals method ensures its tested on the basis of the id
     @Override
     public boolean equals(Object o) {  // Two objects are equal if they have the same id.
         if (this == o) return true;
