@@ -96,4 +96,61 @@ public class Job {
 
 
     }
+
+    // TODO: Write a custom toString() method that formats the data
+    @Override
+    public String toString() {
+        String newline = System.lineSeparator();
+        StringBuilder allJobInfo = new StringBuilder();
+            allJobInfo.append(newline);
+            allJobInfo.append("ID: ");
+            if (id != 0) {
+                allJobInfo.append(id);
+            } else {
+                allJobInfo.append("Data not available");
+            }
+            allJobInfo.append(newline);
+
+            allJobInfo.append("Name: ");
+            if (name != null && !name.isEmpty()) {
+                allJobInfo.append(name);
+            } else {
+                allJobInfo.append("Data not available");
+            }
+            allJobInfo.append(newline);
+
+        allJobInfo.append("Employer: ");
+        if (getEmployer().getValue() != null && !getEmployer().getValue().isEmpty()) {
+            allJobInfo.append(getEmployer().getValue());
+        } else {
+            allJobInfo.append("Data not available");
+        }
+        allJobInfo.append(newline);
+
+        allJobInfo.append("Location: ");
+        if (getLocation().getValue() != null && !getLocation().getValue().isEmpty()) {
+            allJobInfo.append(getLocation().getValue());
+        } else {
+            allJobInfo.append("Data not available");
+        }
+        allJobInfo.append(newline);
+
+        allJobInfo.append("Position Type: ");
+        if (getPositionType().getValue() != null && !getPositionType().getValue().isEmpty()) {
+            allJobInfo.append(getPositionType().getValue());
+        } else {
+            allJobInfo.append("Data not available");
+        }
+        allJobInfo.append(newline);
+
+        allJobInfo.append("Core Competency: ");
+        if (getCoreCompetency().getValue() != null && !getCoreCompetency().getValue().isEmpty()) {
+            allJobInfo.append(getCoreCompetency().getValue());
+        } else {
+            allJobInfo.append("Data not available");
+        }
+        allJobInfo.append(newline);
+
+        return allJobInfo.toString();
+    }
 }

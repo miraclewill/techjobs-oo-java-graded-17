@@ -40,4 +40,50 @@ public class JobTest {
         assertFalse(job1.equals(job2));
 
     }
+
+    @Test
+    public void testToStringStartsAndEndsWithNewLine () {
+        String newline = System.lineSeparator();
+        Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String expectedMessage = newline +  "ID: " + job.getId() + newline +
+                "Name: " + job.getName() + newline +
+                "Employer: " + job.getEmployer().getValue() + newline +
+                "Location: " + job.getLocation().getValue() + newline +
+                "Position Type: " + job.getPositionType().getValue() + newline +
+                "Core Competency: " + job.getCoreCompetency().getValue() +
+                newline;
+        assertEquals(expectedMessage, job.toString());
+    }
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData () {
+        String newline = System.lineSeparator();
+        Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String expectedMessage = newline +
+                "ID: " + job.getId() + newline +
+                "Name: " + job.getName() + newline +
+                "Employer: " + job.getEmployer().getValue() + newline +
+                "Location: " + job.getLocation().getValue() + newline +
+                "Position Type: " + job.getPositionType().getValue() + newline +
+                "Core Competency: " + job.getCoreCompetency().getValue() +
+                newline;
+        assertEquals(expectedMessage, job.toString());
+    }
+
+    @Test
+    public void testToStringHandlesEmptyField () {
+        String newline = System.lineSeparator();
+        Job job = new Job("Product tester", new Employer(""), new Location(""), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+    String expectedMessage = newline +
+            "ID: " + job.getId() + newline +
+            "Name: " + job.getName() + newline +
+            "Employer: " + "Data not available" + newline +
+            "Location: " + "Data not available" + newline +
+            "Position Type: " + job.getPositionType().getValue() + newline +
+            "Core Competency: " + job.getCoreCompetency().getValue() +
+            newline;
+        assertEquals(expectedMessage, job.toString());
+
+    }
+
 }
